@@ -1,4 +1,9 @@
 include(InstallerBase.pri);
+mkpath( $$PWD/../Distro)
+win32:OUT_FILE = CQtDeployerInstaller.exe
+unix:OUT_FILE = CQtDeployerInstaller.run
+
+DEPLOY_TARGET = $$PWD/../CQtDeployer/build/release
 
 BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 4
 BASE_DEPLOY_FLAGS_SNAKE = $$BASE_DEPLOY_FLAGS -targetDir $$PWD/packages/cqtdeployer/data
