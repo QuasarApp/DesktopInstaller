@@ -1,4 +1,4 @@
-incude(InstallerBase.pri);
+include(InstallerBase.pri);
 
 BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 4
 BASE_DEPLOY_FLAGS_SNAKE = $$BASE_DEPLOY_FLAGS -targetDir $$PWD/packages/cqtdeployer/data

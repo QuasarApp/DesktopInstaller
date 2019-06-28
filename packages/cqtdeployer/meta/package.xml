@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Package>
-    <DisplayName>App</DisplayName>
-    <Description>App</Description>
+    <DisplayName>CQtDeployer</DisplayName>
+    <Description>CQtDeployer</Description>
     <Version>1.2.3.1</Version>
     <Default>true</Default>
     <ForcedInstallation>false</ForcedInstallation>
