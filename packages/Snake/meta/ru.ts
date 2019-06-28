@@ -2,16 +2,15 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>controlScript</name>
+    <name>installscript</name>
     <message>
-        <location filename="controlScript.js" line="14"/>
+        <location filename="installscript.js" line="7"/>
         <source>Snake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="controlScript.js" line="15"/>
-        <source>Install Snake</source>
-        <oldsource>Install Noisier</oldsource>
+        <location filename="installscript.js" line="8"/>
+        <source>This package contains Snake</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
