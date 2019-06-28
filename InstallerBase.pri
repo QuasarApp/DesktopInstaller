@@ -13,6 +13,11 @@ contains(QMAKE_HOST.os, Linux):{
     DEPLOYER = cqtdeployer
 }
 
+android {
+    DEPLOYER = $$QT_DIR/androiddeployqt
+}
+
+
 
 BINARY_LIST
 REPO_LIST
