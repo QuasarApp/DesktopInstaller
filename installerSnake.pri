@@ -10,6 +10,9 @@ BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 5
 BASE_DEPLOY_FLAGS_SERVER = $$BASE_DEPLOY_FLAGS -targetDir $$INSTALL_SERVER_DIR
 BASE_DEPLOY_FLAGS_SNAKE = $$BASE_DEPLOY_FLAGS -targetDir $$PWD/packages/Snake/data
 ANDROID_BUILD_DIR = $$PWD/../android-build
+QML_DIR = $$PWD/../Snake/
+DEPLOY_TARGET = $$PWD/../Snake/build/release
+DEPLOY_SERVER = $$PWD/../SnakeServer/Daemon/build/release,$$PWD/../SnakeServer/Terminal/build/release
 
 deploy_dep.commands += $$DEPLOYER -bin $$DEPLOY_TARGET -qmlDir $$QML_DIR $$BASE_DEPLOY_FLAGS_SNAKE
 install_dep.commands = make INSTALL_ROOT=$$ANDROID_BUILD_DIR install
