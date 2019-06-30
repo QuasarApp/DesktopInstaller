@@ -62,15 +62,14 @@ android {
 
     INPUT_ANDROID = --input $$PWD/../Snake/android-libsnake.so-deployment-settings.json
     OUTPUT_ANDROID = --output $$ANDROID_BUILD_DIR
-    A_PL = --android-platform android-29
     JDK = --jdk /usr
     GRADLE = --gradle
 
     !isEmpty( SIGN_PATH ): !isEmpty( SIGN_PASSWORD ): !isEmpty( SIGN_STORE_PASSWORD ) {
-        SIGN = --sign $$SIGN_PATH --storepass $$SIGN_STORE_PASSWORD --keypass $$SIGN_PASSWORD
+        SIGN = --sign $$SIGN_PATH --storepass $$SIGN_STORE_PASSWORD --keypass $$SIGN_PASSWORD --release
     }
 
-    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$A_PL $$JDK $$GRADLE $$SIGN
+    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
 
     deploy.commands = cp $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
