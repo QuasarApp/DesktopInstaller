@@ -69,7 +69,7 @@ android {
         SIGN_VALUE = --sign '$$SIGN_PATH'
 
         !isEmpty( SIGN_ALIES ): {
-            SIGN += $$SIGN_ALIES
+            SIGN_VALUE += $$SIGN_ALIES
         }
 
         SIGN = $$SIGN_VALUE  --storepass '$$SIGN_STORE_PASSWORD' --release
