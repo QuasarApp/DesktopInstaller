@@ -65,8 +65,17 @@ android {
     JDK = --jdk /usr
     GRADLE = --gradle
 
-    !isEmpty( SIGN_PATH ): !isEmpty( SIGN_PASSWORD ): !isEmpty( SIGN_STORE_PASSWORD ) {
-        SIGN = --sign $$SIGN_PATH --storepass $$SIGN_STORE_PASSWORD --keypass $$SIGN_PASSWORD --release
+    !isEmpty( SIGN_PATH ): !isEmpty( SIGN_STORE_PASSWORD ) {
+        SIGN_VALUE = --sign '$$SIGN_PATH'
+
+        !isEmpty( SIGN_ALIES ): {
+            SIGN += $$SIGN_ALIES
+        }
+
+        SIGN = $$SIGN_VALUE  --storepass '$$SIGN_STORE_PASSWORD' --release
+        !isEmpty( SIGN_PASSWORD ): {
+            SIGN += --keypass '$$SIGN_PASSWORD'
+        }
     }
 
     deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$JDK $$GRADLE $$SIGN
