@@ -33,8 +33,8 @@ deploy.commands = $$EXEC \
 
 deploy.depends = deploy_dep
 
-win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTower/Windows
-unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTower/Linux
+win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Windows
+unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Linux
 
 create_repo.commands = $$REPOGEN \
                         --update-new-components \
