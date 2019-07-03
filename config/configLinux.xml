@@ -2,26 +2,26 @@
 <Installer>
     <WizardDefaultWidth>640px</WizardDefaultWidth>
     <WizardDefaultHeight>400px</WizardDefaultHeight>
-    <Name>Snake</Name>
+    <Name>HanoiTowers</Name>
     <Version>1.0.0</Version>
-    <Title>Snake</Title>
-    <Publisher>SKB</Publisher>
-    <StartMenuDir>Snake</StartMenuDir>
-    <TargetDir>@HomeDir@/Snake</TargetDir>
+    <Title>HanoiTowers</Title>
+    <Publisher>QuasarApp</Publisher>
+    <StartMenuDir>HanoiTowers</StartMenuDir>
+    <TargetDir>@HomeDir@/HanoiTowers</TargetDir>
     <CreateLocalRepository>true</CreateLocalRepository>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
-    <MaintenanceToolName>Uninstall</MaintenanceToolName>
+    <MaintenanceToolName>HanoiTowersTool</MaintenanceToolName>
     <WizardStyle>Classic</WizardStyle>
     <StyleSheet>style.css</StyleSheet>
     <Banner>banner.png</Banner>
     <Logo>logo.png</Logo>
-    <RunProgram>@TargetDir@/snake.sh</RunProgram>
+    <RunProgram>@TargetDir@/HanoiTower.exe</RunProgram>
 
     <RemoteRepositories>
         <Repository>
-            <Url>http://178.124.160.6:3030/Snake/Linux</Url>
+            <Url>http://178.124.160.6:3030/HanoiTowers/Linux</Url>
             <Enabled>1</Enabled>
             <DisplayName>QuasarApp</DisplayName>
         </Repository>
