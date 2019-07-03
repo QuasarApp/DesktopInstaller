@@ -81,6 +81,14 @@ android {
     deploy.commands = cp $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
 }
 
+releaseSnap.commands = rm *.snap -rdf && chmod 777 -R $$PWD/../prime && snapcraft && snapcraft push *.snap # bad patern
+buildSnap.commands = snapcraft
+clearSnap.commands = rm parts prime stage *.snap -rdf
+
+unix:!android:release.depends += clearSnap
+unix:!android:release.depends += buildSnap
+unix:!android:release.depends += releaseSnap
+
 OTHER_FILES += \
     $$PWD/config/*.xml \
     $$PWD/config/*.js \
@@ -97,3 +105,7 @@ QMAKE_EXTRA_TARGETS += \
     deploy \
     create_repo \
     release \
+    clearSnap \
+    releaseSnap \
+    buildSnap \
+    chmodSnap
