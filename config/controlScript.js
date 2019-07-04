@@ -1,35 +1,25 @@
 function Controller()
 {
-    generateTr();
-
-    installer.setMessageBoxAutomaticAnswer("OverwriteTargetDirectory", QMessageBox.Yes);
     installer.uninstallationFinished.connect(this, Controller.prototype.uninstallationFinished);
     installer.installationFinished.connect(this, Controller.prototype.installationFinished);
-    runProgramm();
+    runProgramControl();
 }
 
-function generateTr() {
-    console.log("generate tr start ")
 
-    installer.setValue("Name", qsTr("Snake"));
-    installer.setValue("Title", qsTr("Install Snake"));
-}
-
-function runProgramm() {
+function runProgramControl() {
     if (systemInfo.kernelType === "winnt") {
-        installer.setValue("RunProgram", "@TargetDir@/snake.exe")
+        installer.setValue("RunProgram", "@TargetDir@/HanoiTowers.exe");
     } else {
-        installer.setValue("RunProgram", "@TargetDir@/snake.sh")
+        installer.setValue("RunProgram", "@TargetDir@/HanoiTowers.sh");
     }
 }
 
-Controller.prototype.uninstallationFinished = function()
-{
+Controller.prototype.uninstallationFinished = function() {
 
 }
 
 
-Controller.prototype.installationFinished = function()
-{
+Controller.prototype.installationFinished = function() {
 
 }
+

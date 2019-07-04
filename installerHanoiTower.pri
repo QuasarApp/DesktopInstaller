@@ -4,7 +4,7 @@ win32:OUT_FILE = HanoiTowerInstaller.exe
 unix:OUT_FILE = HanoiTowerInstaller.run
 
 IGNORE_ENV=$$PWD/../Distro/,$$PWD/../deployTests,$$PWD/packages/HanoiTower/data/
-BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 5 -ignoreEnv $$IGNORE_ENV -targetDir $$PWD/HanoiTower/Snake/data
+BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 5 -ignoreEnv $$IGNORE_ENV -targetDir $$PWD/packages/HanoiTowers/data
 
 ANDROID_BUILD_DIR = $$PWD/../android-build
 QML_DIR = $$PWD/../hanoi_towers/
@@ -33,8 +33,8 @@ deploy.commands = $$EXEC \
 
 deploy.depends = deploy_dep
 
-win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTower/Windows
-unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTower/Linux
+win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Windows
+unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Linux
 
 create_repo.commands = $$REPOGEN \
                         --update-new-components \
@@ -57,7 +57,7 @@ message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
 
 android {
 
-    INPUT_ANDROID = --input $$PWD/../Snake/android-libsnake.so-deployment-settings.json
+    INPUT_ANDROID = --input $$PWD/../hanoi_towers/android-libHanoiTowers.so-deployment-settings.json
     OUTPUT_ANDROID = --output $$ANDROID_BUILD_DIR
     JDK = --jdk /usr
     GRADLE = --gradle
@@ -81,6 +81,14 @@ android {
     deploy.commands = cp $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
 }
 
+releaseSnap.commands = rm *.snap -rdf && chmod 777 -R $$PWD/../prime && snapcraft && snapcraft push *.snap # bad patern
+buildSnap.commands = snapcraft
+clearSnap.commands = rm parts prime stage *.snap -rdf
+
+unix:!android:release.depends += clearSnap
+unix:!android:release.depends += buildSnap
+unix:!android:release.depends += releaseSnap
+
 OTHER_FILES += \
     $$PWD/config/*.xml \
     $$PWD/config/*.js \
@@ -88,13 +96,16 @@ OTHER_FILES += \
     $$PWD/config/*.css \
     $$PWD/packages/Installer/meta/* \
     $$PWD/packages/Installer/data/app.check \
-    $$PWD/packages/HanoiTower/meta/* \
+    $$PWD/packages/HanoiTowers/meta/* \
 
 
 QMAKE_EXTRA_TARGETS += \
-    installSnake \
     deploy_dep \
     install_dep \
     deploy \
     create_repo \
     release \
+    clearSnap \
+    releaseSnap \
+    buildSnap \
+    chmodSnap
