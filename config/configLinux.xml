@@ -3,7 +3,7 @@
     <WizardDefaultWidth>640px</WizardDefaultWidth>
     <WizardDefaultHeight>400px</WizardDefaultHeight>
     <Name>HanoiTowers</Name>
-    <Version>1.5.3</Version>
+    <Version>1.5.3.1</Version>
     <Title>HanoiTowers</Title>
     <Publisher>QuasarApp</Publisher>
     <StartMenuDir>HanoiTowers</StartMenuDir>
