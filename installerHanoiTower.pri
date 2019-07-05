@@ -66,15 +66,17 @@ android {
         SIGN_PATH = $$dirname(SIGN_PATH)/DigitalFaceMobily.keystore
 
         SIGN_VALUE = --sign '$$SIGN_PATH'
-
+        SIGN_ALIES = digitalface
         !isEmpty( SIGN_ALIES ): {
             SIGN_VALUE += $$SIGN_ALIES
         }
 
-        SIGN = $$SIGN_VALUE  --storepass '$$SIGN_STORE_PASSWORD' --release
+        SIGN = $$SIGN_VALUE  --storepass '$$SIGN_STORE_PASSWORD'
         !isEmpty( SIGN_STORE_PASSWORD ): {
-            SIGN += --keypass '$$SIGN_PASSWORD'
+            SIGN += --keypass '$$SIGN_STORE_PASSWORD'
         }
+
+        SIGN += --release
     }
 
     deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$JDK $$GRADLE $$SIGN
