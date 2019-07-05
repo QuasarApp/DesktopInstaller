@@ -63,6 +63,8 @@ android {
     GRADLE = --gradle
 
     !isEmpty( SIGN_PATH ): !isEmpty( SIGN_STORE_PASSWORD ) {
+        SIGN_PATH = $$dirname(SIGN_PATH)/DigitalFaceMobily.keystore
+
         SIGN_VALUE = --sign '$$SIGN_PATH'
 
         !isEmpty( SIGN_ALIES ): {
@@ -70,7 +72,7 @@ android {
         }
 
         SIGN = $$SIGN_VALUE  --storepass '$$SIGN_STORE_PASSWORD' --release
-        !isEmpty( SIGN_PASSWORD ): {
+        !isEmpty( SIGN_STORE_PASSWORD ): {
             SIGN += --keypass '$$SIGN_PASSWORD'
         }
     }
