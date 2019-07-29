@@ -10,8 +10,9 @@ BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 5
 BASE_DEPLOY_FLAGS_SERVER = $$BASE_DEPLOY_FLAGS -targetDir $$INSTALL_SERVER_DIR
 BASE_DEPLOY_FLAGS_SNAKE = $$BASE_DEPLOY_FLAGS -targetDir $$PWD/packages/Snake/data
 ANDROID_BUILD_DIR = $$PWD/../android-build
-QML_DIR = $$PWD/../Snake/
-DEPLOY_TARGET = $$PWD/../Snake/build/release
+QML_DIR = $$PWD/../SnakeClient/Client
+CLIENT_DIR = $$PWD/../SnakeClient/SnakeApp
+DEPLOY_TARGET = $$CLIENT_DIR/build/release
 DEPLOY_SERVER = $$PWD/../SnakeServer/Daemon/build/release,$$PWD/../SnakeServer/Terminal/build/release
 
 deploy_dep.commands += $$DEPLOYER -bin $$DEPLOY_TARGET -qmlDir $$QML_DIR $$BASE_DEPLOY_FLAGS_SNAKE
@@ -55,7 +56,7 @@ message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
 
 android {
 
-    INPUT_ANDROID = --input $$PWD/../Snake/android-libsnake.so-deployment-settings.json
+    INPUT_ANDROID = --input $$CLIENT_DIR/android-libSnake.so-deployment-settings.json
     OUTPUT_ANDROID = --output $$ANDROID_BUILD_DIR
     JDK = --jdk /usr
     GRADLE = --gradle
