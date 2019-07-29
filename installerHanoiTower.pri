@@ -82,7 +82,7 @@ android {
     deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
 
-    deploy.commands = cp $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
+    deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
 }
 
 releaseSnap.commands = rm *.snap -rdf && chmod 777 -R $$PWD/../prime && snapcraft && snapcraft push *.snap # bad patern
