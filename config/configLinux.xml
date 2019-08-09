@@ -2,26 +2,24 @@
 <Installer>
     <WizardDefaultWidth>640px</WizardDefaultWidth>
     <WizardDefaultHeight>400px</WizardDefaultHeight>
-    <Name>HanoiTowers</Name>
-    <Version>1.5.3.1</Version>
-    <Title>HanoiTowers</Title>
+    <Name>App</Name>
+    <Version>1.2.3.1</Version>
+    <Title>App</Title>
     <Publisher>QuasarApp</Publisher>
-    <StartMenuDir>HanoiTowers</StartMenuDir>
-    <TargetDir>@HomeDir@/HanoiTowers</TargetDir>
-    <CreateLocalRepository>true</CreateLocalRepository>
+    <StartMenuDir>App</StartMenuDir>
+    <TargetDir>@HomeDir@/App</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
-    <MaintenanceToolName>HanoiTowersTool</MaintenanceToolName>
+    <MaintenanceToolName>AppTool</MaintenanceToolName>
     <WizardStyle>Classic</WizardStyle>
     <StyleSheet>style.css</StyleSheet>
     <Banner>banner.png</Banner>
     <Logo>logo.png</Logo>
-    <RunProgram>@TargetDir@/HanoiTower.exe</RunProgram>
 
     <RemoteRepositories>
         <Repository>
-            <Url>http://178.124.160.6:3030/HanoiTowers/Linux</Url>
+            <Url>http://quasarapp.ddns.net:3030/HanoiTowers/Linux</Url>
             <Enabled>1</Enabled>
             <DisplayName>QuasarApp</DisplayName>
         </Repository>
