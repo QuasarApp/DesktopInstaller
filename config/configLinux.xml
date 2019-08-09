@@ -2,26 +2,24 @@
 <Installer>
     <WizardDefaultWidth>640px</WizardDefaultWidth>
     <WizardDefaultHeight>400px</WizardDefaultHeight>
-    <Name>Snake</Name>
-    <Version>1.0.0</Version>
-    <Title>Snake</Title>
-    <Publisher>SKB</Publisher>
-    <StartMenuDir>Snake</StartMenuDir>
-    <TargetDir>@HomeDir@/Snake</TargetDir>
-    <CreateLocalRepository>true</CreateLocalRepository>
+    <Name>App</Name>
+    <Version>1.2.3.2</Version>
+    <Title>App</Title>
+    <Publisher>QuasarApp</Publisher>
+    <StartMenuDir>App</StartMenuDir>
+    <TargetDir>@HomeDir@/App</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
-    <MaintenanceToolName>Uninstall</MaintenanceToolName>
+    <MaintenanceToolName>AppTool</MaintenanceToolName>
     <WizardStyle>Classic</WizardStyle>
     <StyleSheet>style.css</StyleSheet>
     <Banner>banner.png</Banner>
     <Logo>logo.png</Logo>
-    <RunProgram>@TargetDir@/snake.sh</RunProgram>
 
     <RemoteRepositories>
         <Repository>
-            <Url>http://178.124.160.6:3030/Snake/Linux</Url>
+            <Url>http://quasarapp.ddns.net:3030/Snake/Linux</Url>
             <Enabled>1</Enabled>
             <DisplayName>QuasarApp</DisplayName>
         </Repository>
