@@ -2,12 +2,12 @@
 <Installer>
     <WizardDefaultWidth>640px</WizardDefaultWidth>
     <WizardDefaultHeight>400px</WizardDefaultHeight>
-    <Name>App</Name>
+    <Name>Snake</Name>
     <Version>1.2.3.2</Version>
-    <Title>App</Title>
+    <Title>Snake</Title>
     <Publisher>QuasarApp</Publisher>
     <StartMenuDir>App</StartMenuDir>
-    <TargetDir>@HomeDir@/App</TargetDir>
+    <TargetDir>@HomeDir@/Snake</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
