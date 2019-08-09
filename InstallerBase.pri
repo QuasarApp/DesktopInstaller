@@ -17,16 +17,13 @@ android {
     DEPLOYER = $$QT_DIR/androiddeployqt
 }
 
-message(" ")
-message(" " )
+
 message( Configuration variables :)
-message(" " )
 message(QT_DIR = $$QT_DIR)
 message(QMAKE_BIN = $$QMAKE_BIN)
 message(LUPDATE = $$LUPDATE)
 message(LRELEASE = $$LRELEASE)
 message(DEPLOYER = $$DEPLOYER)
-message(" " )
 
 BINARY_LIST
 REPO_LIST
