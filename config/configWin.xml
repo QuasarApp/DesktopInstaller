@@ -4,10 +4,10 @@
     <WizardDefaultHeight>400px</WizardDefaultHeight>
     <Name>App</Name>
     <Version>1.2.3.1</Version>
-    <Title>App</Title>
-    <Publisher>App</Publisher>
-    <StartMenuDir>App</StartMenuDir>
-    <TargetDir>@HomeDir@/App</TargetDir>
+    <Title>CQtDeployer</Title>
+    <Publisher>QuasarApp</Publisher>
+    <StartMenuDir>CQtDeployer</StartMenuDir>
+    <TargetDir>@HomeDir@/CQtDeployer</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
