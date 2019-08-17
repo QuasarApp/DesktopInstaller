@@ -6,7 +6,7 @@
     <Version>1.2.3.3</Version>
     <Title>Snake</Title>
     <Publisher>QuasarApp</Publisher>
-    <StartMenuDir>App</StartMenuDir>
+    <StartMenuDir>Snake</StartMenuDir>
     <TargetDir>@HomeDir@/Snake</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
