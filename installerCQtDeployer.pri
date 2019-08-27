@@ -3,6 +3,9 @@ mkpath( $$PWD/../Distro)
 win32:OUT_FILE = CQtDeployerInstaller.exe
 unix:OUT_FILE = CQtDeployerInstaller.run
 
+win32:OUT_FILE_OFF = CQtDeployerOfflineInstaller.exe
+unix:OUT_FILE_OFF = CQtDeployerOfflineInstaller.run
+
 DEPLOY_TARGET = $$PWD/../CQtDeployer/build/release
 
 BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 4
@@ -15,13 +18,14 @@ mkpath( $$PWD/../Distro)
 win32:CONFIG_FILE = $$PWD/config/configWin.xml
 unix:CONFIG_FILE = $$PWD/config/configLinux.xml
 
-deploy.commands = $$EXEC \
+deployOffline.commands = $$EXEC \
                        --offline-only \
                        -c $$CONFIG_FILE \
                        -p $$PWD/packages \
-                       $$PWD/../Distro/$$OUT_FILE
+                       $$PWD/../Distro/$$OUT_FILE_OFF
 
 deploy.depends = deploy_dep
+deploy.depends += deployOffline
 
 win32:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Linux
@@ -64,6 +68,7 @@ OTHER_FILES += \
 
 QMAKE_EXTRA_TARGETS += \
     deploy_dep \
+    deployOffline \
     deploy \
     create_repo \
     release \
