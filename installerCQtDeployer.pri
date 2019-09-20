@@ -8,10 +8,13 @@ unix:OUT_FILE_OFF = CQtDeployerOfflineInstaller.run
 
 DEPLOY_TARGET = $$PWD/../CQtDeployer/build/release
 
-BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 4
-BASE_DEPLOY_FLAGS_SNAKE = $$BASE_DEPLOY_FLAGS -targetDir $$PWD/packages/cqtdeployer/data
+DATA_DIR = $$PWD/packages/cqtdeployer_v1_3/data/1.3
+META_DIR = $$PWD/packages/cqtdeployer_v1_3/meta/
 
-deploy_dep.commands += $$DEPLOYER -bin $$DEPLOY_TARGET $$BASE_DEPLOY_FLAGS_SNAKE
+BASE_DEPLOY_FLAGS = clear -qmake $$QMAKE_BIN -libDir $$PWD/../ -recursiveDepth 4 -ignoreEnv $$DEPLOY_TARGET
+BASE_DEPLOY_FLAGS_CQT = $$BASE_DEPLOY_FLAGS -targetDir $$DATA_DIR
+
+deploy_dep.commands += $$DEPLOYER -bin $$DEPLOY_TARGET $$BASE_DEPLOY_FLAGS_CQT
 
 mkpath( $$PWD/../Distro)
 
@@ -35,7 +38,7 @@ create_repo.commands = $$REPOGEN \
                         -p $$PWD/packages \
                         $$ONLINE_REPO_DIR
 
-chmodSnap.commands = chmod 777 -R $$PWD/packages/cqtdeployer/data
+chmodSnap.commands = chmod 777 -R $$DATA_DIR
 unix:release.depends += chmodSnap
 
 
@@ -63,7 +66,7 @@ unix:release.depends += releaseSnap
 
 OTHER_FILES += \
     $$PWD/config/*.* \
-    $$PWD/packages/cqtdeployer/meta/* \
+    $$META_DIR/* \
 
 
 QMAKE_EXTRA_TARGETS += \
