@@ -20,18 +20,10 @@ Component.prototype.createOperations = function()
 }
 
 function systemIntegration() {
-    if (component.installationRequested() || component.updateRequested()) {
-        installInSystem();
-    } else if (component.uninstallationRequested()) {
-        removeFromSystem();
-    }
-
-}
-
-function installInSystem() {
     targetDir = installer.value("TargetDir", "");
     homeDir = installer.value("HomeDir", "");
 
+    console.log("install component")
     console.log("targetDir "  + targetDir)
     console.log("hometDir "  + homeDir)
 
@@ -52,18 +44,9 @@ function installInSystem() {
 
         }
         component.addOperation('Execute', ["ln", "-sf", targetDir + "/" + VERSION + "/cqtdeployer.sh",
-                                           homeDir + "/.local/bin/cqtdeployer"])
+                                           homeDir + "/.local/bin/cqtdeployer"],
+                               "UNDOEXECUTE", ["rm", "-f", homeDir + "/.local/bin/cqtdeployer"] )
 
-    }
-}
-
-function removeFromSystem() {
-    homeDir = installer.value("HomeDir", "");
-
-    console.log("hometDir "  + homeDir)
-
-    if (systemInfo.kernelType === "linux") {
-        component.addOperation('Execute', [ "rm", "-f", homeDir + "/.local/bin/cqtdeployer"]);
     }
 
 }

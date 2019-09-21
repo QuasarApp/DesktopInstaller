@@ -4,28 +4,28 @@
 <context>
     <name>installscript</name>
     <message>
-        <location filename="installscript.js" line="7"/>
+        <location filename="installscript.js" line="9"/>
         <source>CQtDeployer</source>
         <translation>CQtDeployer</translation>
     </message>
     <message>
-        <location filename="installscript.js" line="8"/>
+        <location filename="installscript.js" line="10"/>
         <source>This package contains CQtDeployer</source>
         <oldsource>This package contains Snake</oldsource>
         <translation>Этот пакет содержит CQtDeployer</translation>
     </message>
     <message>
-        <location filename="installscript.js" line="49"/>
+        <location filename="installscript.js" line="41"/>
         <source>install in system</source>
         <translation>Установка в систему</translation>
     </message>
     <message>
-        <location filename="installscript.js" line="49"/>
+        <location filename="installscript.js" line="41"/>
         <source>Installer</source>
         <translation>Установщик</translation>
     </message>
     <message>
-        <location filename="installscript.js" line="50"/>
+        <location filename="installscript.js" line="42"/>
         <source>The &quot;~/local/bin&quot; folder was not initialized, you may need to reboot to work correctly!</source>
         <translation type="unfinished"></translation>
     </message>
