@@ -3,6 +3,9 @@ mkpath( $$PWD/../Distro)
 win32:OUT_FILE = SnakeInstaller.exe
 unix:OUT_FILE = SnakeInstaller.run
 
+win32:OUT_FILE_OFF = CQtDeployerOfflineInstaller.exe
+unix:OUT_FILE_OFF = CQtDeployerOfflineInstaller.run
+
 INSTALL_SERVER_DIR = ~/SnakeServer
 
 IGNORE_ENV=$$PWD/../Distro/,$$PWD/../deployTests,$$PWD/packages/Snake/data/
@@ -25,12 +28,15 @@ win32:CONFIG_FILE = $$PWD/config/configWin.xml
 unix:CONFIG_FILE = $$PWD/config/configLinux.xml
 
 
-deploy.commands = $$EXEC \
+deployOffline.commands = $$EXEC \
+                       --offline-only \
                        -c $$CONFIG_FILE \
                        -p $$PWD/packages \
-                       $$PWD/../Distro/$$OUT_FILE
+                       $$PWD/../Distro/$$OUT_FILE_OFF
+
 
 deploy.depends = deploy_dep
+deploy.depends += deployOffline
 
 win32:ONLINE_REPO_DIR = $$ONLINE/Snake/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/Snake/Linux
@@ -105,6 +111,7 @@ QMAKE_EXTRA_TARGETS += \
     installSnake \
     createLinks \
     runDaemon \
+    deployOffline \
     deploy_dep \
     install_dep \
     deploy \
