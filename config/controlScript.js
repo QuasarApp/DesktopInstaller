@@ -5,6 +5,12 @@ function Controller()
     installer.setMessageBoxAutomaticAnswer("OverwriteTargetDirectory", QMessageBox.Yes);
     installer.uninstallationFinished.connect(this, Controller.prototype.uninstallationFinished);
     installer.installationFinished.connect(this, Controller.prototype.installationFinished);
+
+    var components = installer.components();
+    components.forEach(function(item) {
+        item.enabled = item.name.find("1.3") >= 0;
+    });
+
 }
 
 function generateTr() {
