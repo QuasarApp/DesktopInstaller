@@ -6,11 +6,18 @@ function Controller()
     installer.uninstallationFinished.connect(this, Controller.prototype.uninstallationFinished);
     installer.installationFinished.connect(this, Controller.prototype.installationFinished);
 
-    var components = installer.components();
-    components.forEach(function(item) {
-        item.enabled = item.name.find("1.3") >= 0;
-    });
+}
 
+Controller.prototype.ComponentSelectionPageCallback = function()
+{
+    var widget = gui.currentPageWidget(); // get the current wizard page
+    if (widget !== null) {
+
+        var components = installer.components();
+        components.forEach(function(item) {
+            item.enabled = item.name.find("1.3") >= 0;
+        });
+    }
 }
 
 function generateTr() {
