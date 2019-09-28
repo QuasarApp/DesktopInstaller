@@ -4,16 +4,14 @@
 <context>
     <name>installscript</name>
     <message>
-        <location filename="installscript.js" line="9"/>
         <source>CQtDeployer 1.3</source>
         <oldsource>CQtDeployer</oldsource>
-        <translation type="unfinished">CQtDeployer</translation>
+        <translation type="obsolete">CQtDeployer</translation>
     </message>
     <message>
-        <location filename="installscript.js" line="10"/>
         <source>This package contains CQtDeployer version 1.3</source>
         <oldsource>This package contains CQtDeployer</oldsource>
-        <translation type="unfinished">Этот пакет содержит CQtDeployer</translation>
+        <translation type="obsolete">Этот пакет содержит CQtDeployer</translation>
     </message>
     <message>
         <location filename="installscript.js" line="41"/>

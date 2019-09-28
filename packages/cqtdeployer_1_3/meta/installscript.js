@@ -6,8 +6,8 @@ function Component()
 }
 
 function generateTr() {
-    component.setValue("DisplayName", qsTr("CQtDeployer 1.3"));
-    component.setValue("Description", qsTr("This package contains CQtDeployer version 1.3"));
+    component.setValue("DisplayName", qsTr("CQtDeployer " + VERSION));
+    component.setValue("Description", qsTr("This package contains CQtDeployer version " + VERSION));
 }
 
 
