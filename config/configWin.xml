@@ -7,7 +7,7 @@
     <Title>CQtDeployer</Title>
     <Publisher>QuasarApp</Publisher>
     <StartMenuDir>CQtDeployer</StartMenuDir>
-    <TargetDir>@HomeDir@/CQtDeployer</TargetDir>
+    <TargetDir>@ApplicationsDir@/CQtDeployer</TargetDir>
     <InstallActionColumnVisible>true</InstallActionColumnVisible>
     <RemoveTargetDir>true</RemoveTargetDir>
     <ControlScript>controlScript.js</ControlScript>
