@@ -29,7 +29,7 @@ function systemIntegration() {
 
     if (systemInfo.kernelType === "winnt") {
 
-        component.addOperation('Execute', ["SETX", "cqtdeployer", "'" + targetDTir + "/" + VERSION + "/cqtdeployer.exe'"])
+        component.addOperation('Execute', ["SETX", "cqtdeployer", "'" + targetDir + "/" + VERSION + "/cqtdeployer.exe'"])
 
 
     } else {
