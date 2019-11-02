@@ -3,8 +3,8 @@ mkpath( $$PWD/../Distro)
 win32:OUT_FILE = SnakeInstaller.exe
 unix:OUT_FILE = SnakeInstaller.run
 
-win32:OUT_FILE_OFF = CQtDeployerOfflineInstaller.exe
-unix:OUT_FILE_OFF = CQtDeployerOfflineInstaller.run
+win32:OUT_FILE_OFF = SnakeOfflineInstaller.exe
+unix:OUT_FILE_OFF = SnakeOfflineInstaller.run
 
 INSTALL_SERVER_DIR = ~/SnakeServer
 
