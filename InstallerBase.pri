@@ -1,3 +1,4 @@
+
 QT_DIR= $$[QT_HOST_BINS]
 
 win32:QMAKE_BIN= $$QT_DIR/qmake.exe
@@ -17,6 +18,7 @@ android {
     DEPLOYER = $$QT_DIR/androiddeployqt
 }
 
+message( PWD :$$PWD)
 
 message( Configuration variables :)
 message(QT_DIR = $$QT_DIR)
@@ -53,48 +55,5 @@ contains(QMAKE_HOST.os, Linux):{
 }
 
 message( selected $$EXEC and $$REPOGEN)
-
-
-SUPPORT_LANGS = ru
-
-defineReplace(findFiles) {
-    patern = $$1
-    path = $$2
-
-    all_files = $$files(*$${patern}, true)
-    win32:all_files ~= s|\\\\|/|g
-    win32:path ~= s|\\\\|/|g
-
-    for(file, all_files) {
-        result += $$find(file, $$path)
-    }
-
-    return($$result)
-}
-
-XML_FILES = $$files(*.xml, true)
-
-for(LANG, SUPPORT_LANGS) {
-    for(XML, XML_FILES) {
-        FILE_PATH = $$dirname(XML)
-
-        JS_FILES = $$findFiles(".js", $$FILE_PATH)
-        UI_FILES = $$findFiles(".ui", $$FILE_PATH)
-
-        commands += "$$LUPDATE $$JS_FILES $$UI_FILES -ts $$FILE_PATH/$${LANG}.ts"
-        TS_FILES += $$FILE_PATH/$${LANG}.ts
-
-    }
-
-    for(TS, TS_FILES) {
-        commands += "$$LRELEASE $$TS"
-    }
-}
-
-for(command, commands) {
-    system($$command)|error("Failed to run: $$command")
-}
-OTHER_FILES += \
-    $$PWD/*.*
 
 
