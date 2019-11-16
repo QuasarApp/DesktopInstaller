@@ -94,4 +94,7 @@ for(LANG, SUPPORT_LANGS) {
 for(command, commands) {
     system($$command)|error("Failed to run: $$command")
 }
+OTHER_FILES += \
+    $$PWD/*.*
+
 
