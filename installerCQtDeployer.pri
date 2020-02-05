@@ -36,10 +36,7 @@ deploy.depends += deployOffline
 win32:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Linux
 
-create_repo.commands = $$REPOGEN \
-                        --update-new-components \
-                        -p $$PWD/packages \
-                        $$ONLINE_REPO_DIR
+create_repo.commands = python $$PWD/prepareData.py $$PWD/../Repo
 
 chmodSnap.commands = chmod 777 -R $$DATA_DIR
 unix:release.depends += chmodSnap
