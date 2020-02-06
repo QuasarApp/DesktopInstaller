@@ -9,7 +9,4 @@ PWD = os.path.dirname(os.path.realpath(__file__))
 
 Path(location).mkdir(parents=True, exist_ok=True)
 
-shutil.copytree(PWD + "/config", location + "/config")
-shutil.copytree(PWD + "/packages", location + "/packages")
-
-
+shutil.copytree(PWD + "/packages", location)
