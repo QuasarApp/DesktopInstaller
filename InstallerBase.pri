@@ -1,21 +1,21 @@
 
 QT_DIR= $$[QT_HOST_BINS]
 
-win32:QMAKE_BIN= shell_quote($$QT_DIR/qmake.exe)
-win32:LUPDATE = shell_quote($$QT_DIR/lupdate.exe)
-win32:LRELEASE = shell_quote($$QT_DIR/lrelease.exe)
-win32:DEPLOYER = shell_quote($$cqtdeployer)
+win32:QMAKE_BIN= $$QT_DIR/qmake.exe
+win32:LUPDATE = $$QT_DIR/lupdate.exe
+win32:LRELEASE = $$QT_DIR/lrelease.exe
+win32:DEPLOYER = $$cqtdeployer
 
 
 contains(QMAKE_HOST.os, Linux):{
-    QMAKE_BIN= shell_quote($$QT_DIR/qmake)
-    LUPDATE = shell_quote($$QT_DIR/lupdate)
-    LRELEASE = shell_quote($$QT_DIR/lrelease)
+    QMAKE_BIN= $$QT_DIR/qmake
+    LUPDATE = $$QT_DIR/lupdate
+    LRELEASE = $$QT_DIR/lrelease
     DEPLOYER = cqtdeployer
 }
 
 android {
-    DEPLOYER = shell_quote($$QT_DIR/androiddeployqt)
+    DEPLOYER = $$QT_DIR/androiddeployqt
 }
 
 message( PWD :$$PWD)
