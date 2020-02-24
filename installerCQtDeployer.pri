@@ -36,7 +36,10 @@ deploy.depends += deployOffline
 win32:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/CQtDeployer/Linux
 
-create_repo.commands = python3 $$PWD/prepareData.py $$PWD/../Repo
+win32:PY = python
+unix: PY = python3
+
+create_repo.commands = $$PY $$PWD/prepareData.py $$PWD/../Repo
 
 chmodSnap.commands = chmod 777 -R $$DATA_DIR
 unix:release.depends += chmodSnap
