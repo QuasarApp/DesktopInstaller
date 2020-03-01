@@ -25,35 +25,36 @@ message(LUPDATE = $$LUPDATE)
 message(LRELEASE = $$LRELEASE)
 message(DEPLOYER = $$DEPLOYER)
 
-BINARY_LIST
-REPO_LIST
+!android:{
+    BINARY_LIST
+    REPO_LIST
 
-sopprted_versions = 3.2 3.1
-for(val, sopprted_versions) {
+    sopprted_versions = 3.2 3.1
+    for(val, sopprted_versions) {
 
-    exists( $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/ ) {
-          message( "QtInstallerFramework v$$val: yes" )
-          BINARY_LIST += $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/binarycreator
-          REPO_LIST += $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/repogen
+        exists( $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/ ) {
+              message( "QtInstallerFramework v$$val: yes" )
+              BINARY_LIST += $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/binarycreator
+              REPO_LIST += $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/repogen
+        }
     }
+
+    isEmpty (BINARY_LIST) {
+          error( "QtInstallerFramework not found!" )
+    }
+
+    win32:EXEC=$$first(BINARY_LIST).exe
+    win32:REPOGEN=$$first(REPO_LIST).exe
+
+    contains(QMAKE_HOST.os, Linux):{
+        unix:EXEC=$$first(BINARY_LIST)
+        win32:EXEC=wine $$first(BINARY_LIST).exe
+
+        REPOGEN=$$first(REPO_LIST)
+    }
+
+    message( selected $$EXEC and $$REPOGEN)
 }
-
-isEmpty (BINARY_LIST) {
-      error( "QtInstallerFramework not found!" )
-}
-
-win32:EXEC=$$first(BINARY_LIST).exe
-win32:REPOGEN=$$first(REPO_LIST).exe
-
-contains(QMAKE_HOST.os, Linux):{
-    unix:EXEC=$$first(BINARY_LIST)
-    win32:EXEC=wine $$first(BINARY_LIST).exe
-
-    REPOGEN=$$first(REPO_LIST)
-}
-
-message( selected $$EXEC and $$REPOGEN)
-
 
 SUPPORT_LANGS = ru
 
