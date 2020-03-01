@@ -28,7 +28,7 @@ message(DEPLOYER = $$DEPLOYER)
 BINARY_LIST
 REPO_LIST
 
-sopprted_versions = 3.1 3.0 2.0
+sopprted_versions = 3.2 3.1
 for(val, sopprted_versions) {
 
     exists( $$QT_DIR/../../../Tools/QtInstallerFramework/$$val/bin/ ) {
