@@ -8,8 +8,8 @@ unix:OUT_FILE_OFF = CQtDeployerOfflineInstaller.run
 
 DEPLOY_TARGET = $$PWD/../CQtDeployer/build/release
 
-DATA_DIR = $$PWD/packages/cqtdeployer_1_3/data/1.3
-META_DIR = $$PWD/packages/cqtdeployer_1_3/meta/
+DATA_DIR = $$PWD/packages/cqtdeployer.1_3/data/1.3
+META_DIR = $$PWD/packages/cqtdeployer.1_3/meta/
 
 win32:OUT_LIB= -libOut .
 win32:OUT_BIN= -binOut .
