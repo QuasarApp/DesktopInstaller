@@ -57,7 +57,7 @@ message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
 
 android {
 
-    INPUT_ANDROID = --input $$PWD/../hanoi_towers/android-libHanoiTowers.so-deployment-settings.json
+    INPUT_ANDROID = --input $$PWD/../hanoi_towers/android-HanoiTowers-deployment-settings.json
     OUTPUT_ANDROID = --output $$ANDROID_BUILD_DIR
     JDK = --jdk /usr
     GRADLE = --gradle
