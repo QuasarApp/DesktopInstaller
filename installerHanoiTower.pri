@@ -36,6 +36,9 @@ deploy.depends = deploy_dep
 win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Linux
 
+win32:PY = python
+unix: PY = python3
+
 create_repo.commands = $$PY $$PWD/../QuasarAppScripts/cp.py $$PWD/packages/ $$PWD/../Repo
 
 message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
