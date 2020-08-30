@@ -75,7 +75,7 @@ android {
         SIGN += --release
     }
 
-    EXTRA=--android-platform android-29 --aab
+    EXTRA=--android-platform android-29
     deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$EXTRA $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
 
@@ -83,7 +83,7 @@ android {
 
     deploy_dep.depends += fix_android
 
-    deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/bundle/* $$PWD/../Distro
+    deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
 }
 
 releaseSnap.commands = rm *.snap -rdf && chmod 777 -R $$PWD/../prime && snapcraft && snapcraft push *.snap # bad patern
