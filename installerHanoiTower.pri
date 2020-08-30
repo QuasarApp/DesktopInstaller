@@ -36,10 +36,7 @@ deploy.depends = deploy_dep
 win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Windows
 unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Linux
 
-create_repo.commands = $$REPOGEN \
-                        --update-new-components \
-                        -p $$PWD/packages \
-                        $$ONLINE_REPO_DIR
+create_repo.commands = $$PY $$PWD/../QuasarAppScripts/cp.py $$PWD/packages/ $$PWD/../Repo
 
 message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
 !isEmpty( ONLINE ) {
