@@ -51,8 +51,9 @@ message( ONLINE_REPO_DIR $$ONLINE_REPO_DIR)
 }
 
 android {
+    INPUT_FILE=$$PWD/../hanoi_towers/android-HanoiTowers-deployment-settings.json
 
-    INPUT_ANDROID = --input $$PWD/../hanoi_towers/android-HanoiTowers-deployment-settings.json
+    INPUT_ANDROID = --input $$INPUT_FILE
     OUTPUT_ANDROID = --output $$ANDROID_BUILD_DIR
     JDK = --jdk /usr
     GRADLE = --gradle
@@ -74,8 +75,13 @@ android {
         SIGN += --release
     }
 
-    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID --aab $$JDK $$GRADLE $$SIGN
+    EXTRA=--android-platform android-29 --aab
+    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$EXTRA $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
+
+    fix_android.commands = sed -i -e 's/"android-target-sdk-version": "28"/"android-target-sdk-version": "29"/g' $$INPUT_FILE
+
+    deploy_dep.depends = fix_android
 
     deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/bundle/* $$PWD/../Distro
 }
@@ -107,4 +113,5 @@ QMAKE_EXTRA_TARGETS += \
     clearSnap \
     releaseSnap \
     buildSnap \
-    chmodSnap
+    chmodSnap \
+    fix_android
