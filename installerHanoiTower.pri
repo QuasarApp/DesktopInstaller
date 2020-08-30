@@ -21,11 +21,6 @@ win32:CONFIG_FILE = $$PWD/config/configWin.xml
 unix:CONFIG_FILE = $$PWD/config/configLinux.xml
 
 
-deploy_dep.commands += $$DEPLOYER -bin $$DEPLOY_TARGET -qmlDir $$QML_DIR $$BASE_DEPLOY_FLAGS
-
-install_dep.commands = make INSTALL_ROOT=$$ANDROID_BUILD_DIR install
-
-
 deploy.commands = $$EXEC \
                        -c $$CONFIG_FILE \
                        -p $$PWD/packages \
