@@ -81,7 +81,7 @@ android {
 
     fix_android.commands = sed -i \'s/\"android-target-sdk-version\": \"28\"/\"android-target-sdk-version\": \"29\"/g\' $$INPUT_FILE
 
-    deploy_dep.depends = fix_android
+    deploy_dep.depends += fix_android
 
     deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/bundle/* $$PWD/../Distro
 }
