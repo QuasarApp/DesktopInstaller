@@ -74,7 +74,7 @@ android {
         SIGN += --release
     }
 
-    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID --android-platform android-29 $$JDK $$GRADLE $$SIGN
+    deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID --aab $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
 
     deploy.commands = cp -r $$ANDROID_BUILD_DIR/build/outputs/apk/* $$PWD/../Distro
