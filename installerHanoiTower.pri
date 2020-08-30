@@ -79,7 +79,7 @@ android {
     deploy_dep.commands = $$DEPLOYER $$INPUT_ANDROID $$OUTPUT_ANDROID $$EXTRA $$JDK $$GRADLE $$SIGN
     deploy_dep.depends = install_dep
 
-    fix_android.commands = sed -i -e 's/"android-target-sdk-version": "28"/"android-target-sdk-version": "29"/g' $$INPUT_FILE
+    fix_android.commands = sed -i 's/"android-target-sdk-version": "28"/"android-target-sdk-version": "29"/g' $$INPUT_FILE
 
     deploy_dep.depends = fix_android
 
