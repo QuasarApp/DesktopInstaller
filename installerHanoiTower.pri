@@ -33,8 +33,8 @@ deploy.commands = $$EXEC \
 
 deploy.depends = deploy_dep
 
-win32:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Windows
-unix:ONLINE_REPO_DIR = $$ONLINE/HanoiTowers/Linux
+win32:ONLINE_REPO_DIR = $$ONLINE/Hanoi-Towers/Windows
+unix:ONLINE_REPO_DIR = $$ONLINE/Hanoi-Towers/Linux
 
 win32:PY = python
 unix: PY = python3
