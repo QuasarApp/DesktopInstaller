@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>from script</DisplayName>
     <Description>from script</Description>
-    <Version>1.5.3.3</Version>
+    <Version>1.5.3.4</Version>
     <Default>true</Default>
     <Script>installscript.js</Script>
     <ReleaseDate>2018-08-25</ReleaseDate>
